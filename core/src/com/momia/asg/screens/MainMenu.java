@@ -15,6 +15,7 @@
  ******************************************************************************/
 package com.momia.asg.screens;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
@@ -32,13 +33,18 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+
+import java.awt.event.InputEvent;
 
 public class MainMenu extends ScreenAdapter {
     Skin skin;
     Stage stage;
     SpriteBatch batch;
+    final Game game;
 
-    MainMenu() {
+    public MainMenu(final Game game) {
+        this.game = game;
         batch = new SpriteBatch();
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
@@ -65,20 +71,20 @@ public class MainMenu extends ScreenAdapter {
         table.setFillParent(true);
         stage.addActor(table);
         // Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
-        final TextButton button = new TextButton("Click me!", skin);
+        final TextButton button = new TextButton("New Game", skin);
         table.add(button);
         // Add a listener to the button. ChangeListener is fired when the button's checked state changes, eg when clicked,
         // Button#setChecked() is called, via a key press, etc. If the event.cancel() is called, the checked state will be reverted.
         // ClickListener could have been used, but would only fire when clicked. Also, canceling a ClickListener event won't
         // revert the checked state.
-        button.addListener(new ChangeListener() {
-            public void changed (ChangeEvent event, Actor actor) {
-                System.out.println("Clicked! Is checked: " + button.isChecked());
-                button.setText("Good job!");
+        button.addListener(new ClickListener() {
+            public void clicked(InputEvent event,float x,float y) {
+                System.out.println("Nabo en culo!");
+                game.setScreen(new Screen1());
             }
         });
         // Add an image actor. Have to set the size, else it would be the size of the drawable (which is the 1x1 texture).
-        table.add(new Image(skin.newDrawable("white", Color.RED))).size(64);
+        table.add(new Image(skin.newDrawable("white", Color.RED))).size(32);
     }
     @Override
     public void render (float deltaTime) {

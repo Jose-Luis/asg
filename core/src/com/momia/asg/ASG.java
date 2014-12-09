@@ -12,7 +12,7 @@ public class ASG extends Game {
 
 	@Override
 	public void create () {
-		this.setScreen(new Screen1());
+		this.setScreen(new MainMenu(this));
 	}
 
 	@Override

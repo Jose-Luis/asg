@@ -26,6 +26,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Event;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -34,8 +36,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-
-import java.awt.event.InputEvent;
 
 public class MainMenu extends ScreenAdapter {
     Skin skin;
@@ -79,12 +79,11 @@ public class MainMenu extends ScreenAdapter {
         // revert the checked state.
         button.addListener(new ClickListener() {
             public void clicked(InputEvent event,float x,float y) {
-                System.out.println("Nabo en culo!");
+               if (button.isChecked())
                 game.setScreen(new Screen1());
             }
         });
-        // Add an image actor. Have to set the size, else it would be the size of the drawable (which is the 1x1 texture).
-        table.add(new Image(skin.newDrawable("white", Color.RED))).size(32);
+
     }
     @Override
     public void render (float deltaTime) {
@@ -95,7 +94,6 @@ public class MainMenu extends ScreenAdapter {
     }
     @Override
     public void resize (int width, int height) {
-        stage.getViewport().update(width, height, true);
     }
     @Override
     public void dispose () {

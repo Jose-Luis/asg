@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="hyptosis_tile-art-batch-1_0" tilewidth="32" tileheight="32">
+  <image source="hyptosis_tile-art-batch-1_0.png" width="960" height="960"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1NsJwkAQheEJgh2kBtFXa5D4moLsQRvR7Uq8pAdHTEBixLi3mQzn4SfXzRL2Y89EtCzGtfJ8NuZ5yDxzbk02qo1UGknaA1zBleakPcAVXGlO2gNcwZXmpD3AFVxpTtoDXOV3tecOiefIseZH7pR4DmkPGlzVgeOn5gr7la79Cq7gaqpJe4CrV45suHJt0h5C6/5D2kUMVy7j+qd0VWZcf992s9+upE3EtCXtIpYtaTfYr+ztV3ClKwuurOxXna1FQVS1bT2P38a/3x+qitDzOxvuwv9y5W7cnT6vm4F7/143Ad/qj+nO++89ANKQKtQ=
+  </data>
+ </layer>
+</map>

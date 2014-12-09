@@ -52,8 +52,8 @@ public class Screen1 extends ScreenAdapter {
     }
 
     private void setCamera(){
-        camera.position.x = 25;
-        camera.position.y = 25;
+        camera.position.x = 15;
+        camera.position.y = 6;
         camera.zoom = 30; //Ten tiles in the screen
         camera.update();
         mapRenderer.setView(camera);

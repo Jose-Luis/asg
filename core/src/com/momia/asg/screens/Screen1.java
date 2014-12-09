@@ -24,15 +24,15 @@ public class Screen1 extends ScreenAdapter {
         batch = new SpriteBatch();
         camera = new OrthographicCamera(10,10);
         map = new TmxMapLoader().load("level1.tmx");
-        mapRenderer = new OrthogonalTiledMapRenderer(map,1/32f);
+        mapRenderer = new OrthogonalTiledMapRenderer(map,1/32f); //Tile size 32x32
     }
 
     @Override
     public void render(float deltaTime){
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        camera.position.x = 25;
-        camera.position.y = 26;
+        camera.position.x = 25; //Locate on tile 25 horizontal
+        camera.position.y = 26; //Locate on tile 26 vertical
         camera.zoom = 1f;
         camera.update();
         mapRenderer.setView(camera);

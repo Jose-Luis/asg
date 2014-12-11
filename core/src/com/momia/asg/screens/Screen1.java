@@ -18,6 +18,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.momia.asg.model.Soldier;
 
 import java.util.ArrayList;
 
@@ -28,12 +29,15 @@ public class Screen1 extends ScreenAdapter {
     private Stage stage;
     private OrthographicCamera camera;
     private OrthogonalTiledMapRenderer mapRenderer;
+    private Soldier soldier;
 
     public Screen1(){
         camera = new OrthographicCamera(1,1);
         stage = new Stage(new FillViewport(1,(float)Gdx.graphics.getHeight()/Gdx.graphics.getWidth(),camera));
         TiledMap map = new TmxMapLoader().load("level1.tmx");
         mapRenderer = new OrthogonalTiledMapRenderer(map,1/32f); //Tile size 32x32
+        soldier = new Soldier();
+        stage.addActor(soldier);
     }
 
     @Override
@@ -41,9 +45,12 @@ public class Screen1 extends ScreenAdapter {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         setCamera();
+        soldier.increaseTime(deltaTime);
+        soldier.moveBy(1/128f,1/128f);
         stage.getBatch().begin();
         mapRenderer.render();
         stage.getBatch().end();
+        stage.draw();
     }
 
     @Override

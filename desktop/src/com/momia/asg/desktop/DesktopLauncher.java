@@ -4,6 +4,8 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
 import com.momia.asg.ASG;
+import com.momia.asg.controller.desktopcontroller.DesktopControlFactory;
+
 import java.lang.String;
 
 public class DesktopLauncher {
@@ -19,6 +21,6 @@ public class DesktopLauncher {
 		config.width = 1920;
 		config.height = 1080;
 		config.vSyncEnabled = true;
-		new LwjglApplication(new ASG(), config);
+		new LwjglApplication(new ASG(new DesktopControlFactory()), config);
 	}
 }

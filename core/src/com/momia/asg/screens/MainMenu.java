@@ -36,14 +36,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.momia.asg.ASG;
 
 public class MainMenu extends ScreenAdapter {
     Skin skin;
     Stage stage;
     SpriteBatch batch;
-    final Game game;
+    final ASG game;
 
-    public MainMenu(final Game game) {
+    public MainMenu(final ASG game) {
         this.game = game;
         batch = new SpriteBatch();
         stage = new Stage();
@@ -80,7 +81,7 @@ public class MainMenu extends ScreenAdapter {
         button.addListener(new ClickListener() {
             public void clicked(InputEvent event,float x,float y) {
                if (button.isChecked())
-                game.setScreen(new Screen1());
+                game.setScreen(new Screen1(game));
             }
         });
 

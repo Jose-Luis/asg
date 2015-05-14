@@ -5,7 +5,7 @@ buildscript {
     }
     dependencies {
         classpath 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.5'
-        classpath 'com.android.tools.build:gradle:0.14.2'
+        classpath 'com.android.tools.build:gradle:1.0.0'
         classpath 'org.robovm:robovm-gradle-plugin:1.0.0-alpha-04'
     }
 }
@@ -96,6 +96,8 @@ project(":core") {
 
 
     dependencies {
+        compile "org.robovm:robovm-rt:${roboVMVersion}"
+        compile "org.robovm:robovm-cocoatouch:${roboVMVersion}"
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-tools:$gdxVersion"

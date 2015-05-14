@@ -18,19 +18,18 @@ import com.momia.asg.model.Soldier;
  * Created by momia on 5/12/14.
  */
 public class Screen1 extends ScreenAdapter {
-    private ASG game;
     private Stage stage;
     private OrthographicCamera camera;
     private OrthogonalTiledMapRenderer mapRenderer;
-    private Soldier soldier;
 
     public Screen1(ASG game){
-        this.game = game;
+        ASG game1;
+        game1 = game;
         camera = new OrthographicCamera(1,1);
         stage = new Stage(new FillViewport(1,(float)Gdx.graphics.getHeight()/Gdx.graphics.getWidth(),camera));
         TiledMap map = new TmxMapLoader().load("level1.tmx");
         mapRenderer = new OrthogonalTiledMapRenderer(map,1/32f); //Tile size 32x32
-        soldier = new Soldier(game.getControlFactory().createTopDownActorController(0));
+        Soldier soldier = new Soldier(game.getControlFactory().createTopDownActorController(0));
 
         stage.addActor(soldier);
     }

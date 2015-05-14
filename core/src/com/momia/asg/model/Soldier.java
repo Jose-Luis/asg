@@ -1,6 +1,5 @@
 package com.momia.asg.model;
 
-import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -30,8 +29,9 @@ public class Soldier extends Actor{
 
     @Override
     public void draw(Batch batch,float deltaTime){
-        TextureRegion region = laughingAnimation.getKeyFrame(time);
+        TextureRegion region = laughingAnimation.getKeyFrame(time/32f);
         batch.draw(region, getX(),getY(),0,0,region.getRegionWidth(),region.getRegionHeight(),getScaleX()/32f,getScaleY()/32f,0);
+        increaseTime(deltaTime);
     }
 
     public void increaseTime(float DeltaTime){
